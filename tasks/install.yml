@@ -1,0 +1,17 @@
+---
+- name: Pull latest Minecraft Server Image
+  docker_container:
+    name: minecraft_server
+    image: itzg/minecraft-bedrock-server
+    state: present
+- name: Start Docker Container
+  docker_container:
+    detached: true
+    interactive: true
+    tty: true
+    ports:
+      - 19132:19132
+    environment:
+      EULA: "TRUE"
+      stdin_open: true
+      restart: unless-stopped

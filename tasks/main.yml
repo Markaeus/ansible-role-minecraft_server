@@ -1,2 +1,2 @@
 ---
-# tasks file for ansible-role-minecraft_server
+- include_tasks: "install.yml"
